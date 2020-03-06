@@ -90,6 +90,10 @@ if __name__ == '__main__':
 
     eigengenes = miner.getEigengenes(regulon_modules, exp_data,
                                      regulon_dict=None,saveFolder=None)
+    eigenScale = np.percentile(exp_data, 95) / np.percentile(eigengenes, 95)
+    eigengenes = eigenScale * eigengenes
+    eigengenes.index = np.array(eigengenes.index).astype(str)
+    eigengenes.to_csv(os.path.join(args.outdir, "eigengenes.csv"))
     reference_df = eigengenes.copy()
     programs, _ = miner.mosaic(dfr=reference_df, clusterList=centroid_clusters,
                                minClusterSize_x=int(np.ceil(0.01*exp_data.shape[1])),
