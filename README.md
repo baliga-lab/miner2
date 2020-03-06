@@ -2,8 +2,6 @@
 
 A newer version of MINER.
 
-# miner
-
 <b>M</b>echanistic <b>I</b>nference of <b>N</b>ode-<b>E</b>dge <b>R</b>elationships
 
 ## Command line documentation
